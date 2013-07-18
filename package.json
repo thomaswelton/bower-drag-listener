@@ -1,15 +1,15 @@
 {
-  "version": "0.0.0",
-  "name": "requirejs-drag-listener",
-  "description": "RequireJS AMD Module that listens for drag events on DOM elements.",
-  "devDependencies": {
-    "grunt": ">= 0.4.1",
-    "bower": ">= 0.9.x",
-    "grunt-bower-task": ">= 0.2.3",
-    "grunt-contrib-coffee": ">= 0.6.6",
-    "grunt-contrib-watch": "~0.4.4",
-    "grunt-contrib-connect": "~0.3.0",
-    "grunt-exec": "~0.4.0",
-    "grunt-shell": "~0.2.2"
+    "version": "0.0.0"
+  , "name": "requirejs-drag-listener"
+  , "description": "RequireJS AMD Module that listens for drag events on DOM elements."
+  , "devDependencies": {
+      "grunt": ">= 0.4.1"
+    , "bower": ">= 0.9.x"
+    , "grunt-bower-task": ">= 0.2.3"
+    , "grunt-contrib-coffee": ">= 0.6.6"
+    , "grunt-contrib-watch": "~0.4.4"
+    , "grunt-contrib-connect": "~0.3.0"
+    , "grunt-exec": "~0.4.0"
+    , "grunt-shell": "~0.2.2"
   }
 }

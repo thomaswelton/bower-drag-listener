@@ -1,18 +1,18 @@
 {
-  "name": "DragListener",
-  "version": "0.0.1",
-  "main": "dist/DragListener.js",
-  "dependencies": {
-  	"EventEmitter" : "git://github.com/thomaswelton/bower-event-emitter.git#0.0.1"
-  },
-  "devDependencies": {
+    "name": "DragListener"
+  , "version": "0.0.1"
+  , "main": "dist/DragListener.js"
+  , "dependencies": {
+      "EventEmitter" : "git://github.com/thomaswelton/bower-event-emitter.git#0.0.1"
+  }
+  , "devDependencies": {
       "requirejs": "2.1.*"
     , "requirejs-domready": "2.0.*"
     , "requirejs-plugins": "1.0.*"
-  },
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "components"
+  }
+  , "ignore": [
+      "**/.*"
+    , "node_modules"
+    , "components"
   ]
 }
