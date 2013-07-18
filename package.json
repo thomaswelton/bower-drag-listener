@@ -1,5 +1,5 @@
 {
-    "version": "0.0.0"
+    "version": "0.1.0"
   , "name": "requirejs-drag-listener"
   , "description": "RequireJS AMD Module that listens for drag events on DOM elements."
   , "repository": {
