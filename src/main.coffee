@@ -8,17 +8,15 @@ require ['DragListener', 'mootools', 'domReady!'], (DragListener) ->
 	top = 0
 	left = 0
 
-	console.log top
-
 	dragListener.addEvent 'dragmove', (delta) ->
+		console.log delta
 		# Use the deltas to get new values
-		top -= delta.y
-		left -= delta.x
+		top += delta.y
+		left += delta.x
 
 		# Set the new values
 		dragMe.style.top = "#{top}px"
 		dragMe.style.left = "#{left}px"
 
-
-
-
+	dragListener.addEvent 'dragend', (delta) ->
+		console.log "Total delta for drag", delta

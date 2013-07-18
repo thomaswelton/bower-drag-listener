@@ -6,12 +6,15 @@
     dragListener = new DragListener(dragMe);
     top = 0;
     left = 0;
-    console.log(top);
-    return dragListener.addEvent('dragmove', function(delta) {
-      top -= delta.y;
-      left -= delta.x;
+    dragListener.addEvent('dragmove', function(delta) {
+      console.log(delta);
+      top += delta.y;
+      left += delta.x;
       dragMe.style.top = "" + top + "px";
       return dragMe.style.left = "" + left + "px";
+    });
+    return dragListener.addEvent('dragend', function(delta) {
+      return console.log("Total delta for drag", delta);
     });
   });
 

@@ -19,29 +19,34 @@ define ['EventEmitter', 'mootools'], (EventEmitter) ->
 			window.addEvents @getEvents()
 
 			@dragable = true
-			@delta =
+
+			@startPosition =
 				x : event.client.x.toInt()
 				y : event.client.y.toInt()
 
-			@fireEvent 'dragstart', @delta
+			@lastPosition = @startPosition
+
+			@fireEvent 'dragstart'
 
 		removeDragable: (event) =>
 			@dragable = false
 			window.removeEvents @getEvents()
 
-			@fireEvent 'dragend', @delta
+			@fireEvent 'dragend',
+				x: @lastPosition.x - @startPosition.x
+				y: @lastPosition.y - @startPosition.y
 
 		pointerMove: (event) =>
 			return if not @dragable
 			
-			deltaX = (@delta.x.toInt() - event.client.x.toInt())
-			deltaY = (@delta.y.toInt() - event.client.y.toInt())
+			currentX = event.client.x.toInt()
+			currentY = event.client.y.toInt()
 
-			@fireEvent 'dragmove', 
-				x : deltaX
-				y : deltaY
+			@fireEvent 'dragmove',
+				x : currentX - @lastPosition.x 
+				y : currentY - @lastPosition.y
 
-			## Reset delta for next calculation
-			@delta =
-				x : event.client.x.toInt()
-				y : event.client.y.toInt()
+			## Update lastPosition for next calculation
+			@lastPosition =
+				x : currentX
+				y : currentY
