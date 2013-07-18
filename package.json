@@ -1,7 +1,7 @@
 {
-  "name": "drag-listener",
-  "description": "Javascript component to fire x/y coordinates for drag actions",
   "version": "0.0.0",
+  "name": "requirejs-drag-listener",
+  "description": "RequireJS AMD Module that listens for drag events on DOM elements.",
   "devDependencies": {
     "grunt": ">= 0.4.1",
     "bower": ">= 0.9.x",
