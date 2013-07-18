@@ -2,6 +2,10 @@
     "version": "0.0.0"
   , "name": "requirejs-drag-listener"
   , "description": "RequireJS AMD Module that listens for drag events on DOM elements."
+  , "repository": {
+      "type": "git",
+      "url": "https://github.com/thomaswelton/requirejs-drag-listener.git"
+  }
   , "devDependencies": {
       "grunt": ">= 0.4.1"
     , "bower": ">= 0.9.x"
