@@ -20,7 +20,7 @@
 		}
 	</style>
 
-	<script data-main="main" src="../lib/requirejs/require.js"></script>
+	<script data-main="main" src="components/requirejs/require.js"></script>
 	<script>
 		requirejs.config({
 			baseUrl: "",
@@ -28,9 +28,9 @@
 
 			},
 			paths:{
-				'domReady' : '../lib/requirejs-domready/domReady',
-				'DragListener' : '../src/DragListener',
-				'EventEmitter': '../lib/EventEmitter/dist/EventEmitter'
+				'domReady' : 'components/requirejs-domready/domReady',
+				'DragListener' : 'DragListener',
+				'EventEmitter': 'components/EventEmitter/dist/EventEmitter'
 			}
 		});
 	</script>

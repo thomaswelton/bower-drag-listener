@@ -1,12 +1,10 @@
-
 (function() {
   var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define('DragListener',['EventEmitter', 'mootools'], function(EventEmitter) {
+  define(['EventEmitter', 'mootools'], function(EventEmitter) {
     var DragListener;
-
     return DragListener = (function(_super) {
       __extends(DragListener, _super);
 
@@ -25,7 +23,6 @@
 
       DragListener.prototype.getEvents = function() {
         var events;
-
         return events = {
           'mouseup': this.removeDragable,
           'touchend': this.removeDragable,
@@ -38,34 +35,37 @@
         event.preventDefault();
         window.addEvents(this.getEvents());
         this.dragable = true;
-        this.delta = {
+        this.startPosition = {
           x: event.client.x.toInt(),
           y: event.client.y.toInt()
         };
-        return this.fireEvent('dragstart', this.delta);
+        this.lastPosition = this.startPosition;
+        return this.fireEvent('dragstart');
       };
 
       DragListener.prototype.removeDragable = function(event) {
         this.dragable = false;
         window.removeEvents(this.getEvents());
-        return this.fireEvent('dragend', this.delta);
+        return this.fireEvent('dragend', {
+          x: this.lastPosition.x - this.startPosition.x,
+          y: this.lastPosition.y - this.startPosition.y
+        });
       };
 
       DragListener.prototype.pointerMove = function(event) {
-        var deltaX, deltaY;
-
+        var currentX, currentY;
         if (!this.dragable) {
           return;
         }
-        deltaX = this.delta.x.toInt() - event.client.x.toInt();
-        deltaY = this.delta.y.toInt() - event.client.y.toInt();
+        currentX = event.client.x.toInt();
+        currentY = event.client.y.toInt();
         this.fireEvent('dragmove', {
-          x: deltaX,
-          y: deltaY
+          x: currentX - this.lastPosition.x,
+          y: currentY - this.lastPosition.y
         });
-        return this.delta = {
-          x: event.client.x.toInt(),
-          y: event.client.y.toInt()
+        return this.lastPosition = {
+          x: currentX,
+          y: currentY
         };
       };
 
