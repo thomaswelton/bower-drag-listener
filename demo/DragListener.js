@@ -9,13 +9,12 @@
       __extends(DragListener, _super);
 
       function DragListener(el) {
-        this.el = el;
         this.pointerMove = __bind(this.pointerMove, this);
         this.removeDragable = __bind(this.removeDragable, this);
         this.makeDragable = __bind(this.makeDragable, this);
         this.getEvents = __bind(this.getEvents, this);
         DragListener.__super__.constructor.call(this);
-        this.el.addEvents({
+        $(el).addEvents({
           'mousedown': this.makeDragable,
           'touchstart': this.makeDragable
         });
@@ -33,7 +32,7 @@
 
       DragListener.prototype.makeDragable = function(event) {
         event.preventDefault();
-        window.addEvents(this.getEvents());
+        $(document.documentElement).addEvents(this.getEvents());
         this.dragable = true;
         this.startPosition = {
           x: event.client.x.toInt(),
@@ -45,7 +44,7 @@
 
       DragListener.prototype.removeDragable = function(event) {
         this.dragable = false;
-        window.removeEvents(this.getEvents());
+        $(document.documentElement).removeEvents(this.getEvents());
         return this.fireEvent('dragend', {
           x: this.lastPosition.x - this.startPosition.x,
           y: this.lastPosition.y - this.startPosition.y

@@ -1,9 +1,9 @@
 define ['EventEmitter', 'mootools'], (EventEmitter) ->
 	class DragListener extends EventEmitter
-		constructor: (@el) ->
+		constructor: (el) ->
 			super()
 
-			@el.addEvents
+			$(el).addEvents
 				'mousedown' : @makeDragable
 				'touchstart': @makeDragable
 
@@ -16,7 +16,7 @@ define ['EventEmitter', 'mootools'], (EventEmitter) ->
 
 		makeDragable: (event) =>
 			event.preventDefault()
-			window.addEvents @getEvents()
+			$(document.documentElement).addEvents @getEvents()
 
 			@dragable = true
 
@@ -30,7 +30,7 @@ define ['EventEmitter', 'mootools'], (EventEmitter) ->
 
 		removeDragable: (event) =>
 			@dragable = false
-			window.removeEvents @getEvents()
+			$(document.documentElement).removeEvents @getEvents()
 
 			@fireEvent 'dragend',
 				x: @lastPosition.x - @startPosition.x
