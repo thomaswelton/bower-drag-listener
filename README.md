@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/thomaswelton/requirejs-drag-listener.png)](https://travis-ci.org/thomaswelton/requirejs-drag-listener)
 [![Dependency Status](https://david-dm.org/thomaswelton/requirejs-drag-listener.png)](https://david-dm.org/thomaswelton/requirejs-drag-listener)
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/thomaswelton/requirejs-drag-listener/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 RequireJS AMD Module that listens for drag events on DOM elements.
 
